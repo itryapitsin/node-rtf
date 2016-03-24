@@ -2,14 +2,9 @@ var Element = require('./element');
 
 module.exports = TextElement = function (text, format) {
 
-    var textUnicode = '';
-    for (var i = 0, len = text.length; i < len; i++) {
-        textUnicode += '\\u' + text.charCodeAt(i) + '?' ;
-    }
-
     Element.apply(this, [format]);
 
-    this.text = textUnicode;
+    this.text = text;
 };
 
 TextElement.subclass(Element);

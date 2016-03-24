@@ -6,14 +6,14 @@ var myDoc = new rtf(),
     table2 = new TableElement();
 
 //add rows
-table.addRow(["I'm a table row", "with two columns"]);
+table.addRow(["I'm ЁЁЁa table row", "with two columns"]);
 table.addRow(["This is the second row", "and the second column"]);
 
 myDoc.addTable(table);
 
 //You can manually set the data *overwrites any data in the table
 table2.setData([
-                  ["Name", "Price", "Sold"],
+                  ["NameЁЁЁ", "Price", "Sold"],
                   ["Rubber Ducky", "$10.00", "22"],
                   ["Widget", "$99.99", "42"],
                   ["Sproket", "$5.24", "11"]

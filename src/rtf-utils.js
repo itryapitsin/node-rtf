@@ -20,6 +20,15 @@ String.prototype.replaceAll = function(token, newToken, ignoreCase) {
 return str;
 };
 
+String.prototype.toUnicode = function () {
+    var textUnicode = '';
+    for (var i = 0, len = this.length; i < len; i++) {
+        textUnicode += '\\u' + this.charCodeAt(i) + '?' ;
+    }
+
+    return textUnicode;
+};
+
 /**
  * makes text safe for RTF by escaping characters and it also converts linebreaks
  * also checks to see if safetext should be overridden by non-elements like "\line"
@@ -29,8 +38,9 @@ function  getRTFSafeText(text){
   if(typeof text === "object" && text.hasOwnProperty("safe") && !text.safe){
     return text.text;
   }
+
   //this could probably all be replaced by a bit of regex
-  return text.replaceAll('{','\\{')
+  return text.toUnicode().replaceAll('{','\\{')
              .replaceAll('}','\\}')
              .replaceAll('~','\\~')
              .replaceAll('-','\\-')
